@@ -10,9 +10,10 @@ namespace EmployeeManagementSystem
         public double Salary { get; set; }
         public double? HourlyRate { get; set; }
         public DateTime BirthDay { get; set; }
+        public string Department { get; set; }
 
         // Constructor
-        public Employee(string firstName, string lastName, string email, double salary, double? hourlyRate, DateTime birthDay)
+        public Employee(string firstName, string lastName, string email, double salary, double? hourlyRate, DateTime birthDay, string department)
         {
             FirstName = firstName;
             LastName = lastName;
@@ -20,6 +21,7 @@ namespace EmployeeManagementSystem
             Salary = salary;
             HourlyRate = hourlyRate;
             BirthDay = birthDay;
+            Department = department;
         }
 
         public void PrintEmployeeDetails()
@@ -31,6 +33,7 @@ namespace EmployeeManagementSystem
             Console.WriteLine($"Salary: {Salary}");
             Console.WriteLine($"Hourly Rate: {HourlyRate}");
             Console.WriteLine($"Birth Day: {BirthDay.ToShortDateString()}");
+            Console.WriteLine($"Department: {Department}");
         }
     }
 }
