@@ -6,7 +6,7 @@ namespace EmployeeManagementSystem
     {
         static void Main()
         {
-            var employeeManagementSystem = new EmployeeService();
+            var employeeService = new EmployeeService();
 
             while (true)
             {
@@ -27,16 +27,16 @@ namespace EmployeeManagementSystem
                 switch (choice)
                 {
                     case 1:
-                        AddEmployee(employeeManagementSystem);
+                        AddEmployee(employeeService);
                         break;
                     case 2:
-                        employeeManagementSystem.ViewEmployees();
+                        employeeService.ViewEmployees();
                         break;
                     case 3:
-                        UpdateEmployee(employeeManagementSystem);
+                        UpdateEmployee(employeeService);
                         break;
                     case 4:
-                        DeleteEmployee(employeeManagementSystem);
+                        DeleteEmployee(employeeService);
                         break;
                     case 5:
                         Console.WriteLine("Exiting...");
@@ -48,7 +48,7 @@ namespace EmployeeManagementSystem
             }
         }
 
-        static void AddEmployee(EmployeeService employeeManagementSystem)
+        static void AddEmployee(EmployeeService employeeService)
         {
             Console.Write("Enter First Name: ");
             string firstName = Console.ReadLine();
@@ -70,11 +70,11 @@ namespace EmployeeManagementSystem
             DateTime birthDay = DateTime.Parse(Console.ReadLine());
 
             var employee = new Employee(firstName, lastName, emailAddress, salary, hourlyRate, birthDay);
-            employeeManagementSystem.AddEmployee(employee);
+            employeeService.AddEmployee(employee);
             Console.WriteLine("Employee added successfully.");
         }
 
-        static void UpdateEmployee(EmployeeService employeeManagementSystem)
+        static void UpdateEmployee(EmployeeService employeeService)
         {
             Console.Write("Enter Email Address of the Employee to update: ");
             string email = Console.ReadLine();
@@ -95,15 +95,15 @@ namespace EmployeeManagementSystem
             Console.Write("Enter new Birth Day (YYYY-MM-DD): ");
             DateTime newBirthDay = DateTime.Parse(Console.ReadLine());
 
-            employeeManagementSystem.UpdateEmployee(email, newFirstName, newLastName, newSalary, newHourlyRate, newBirthDay);
+            employeeService.UpdateEmployee(email, newFirstName, newLastName, newSalary, newHourlyRate, newBirthDay);
         }
 
-        static void DeleteEmployee(EmployeeService employeeManagementSystem)
+        static void DeleteEmployee(EmployeeService employeeService)
         {
             Console.Write("Enter Email Address of the Employee to delete: ");
             string email = Console.ReadLine();
 
-            employeeManagementSystem.DeleteEmployee(email);
+            employeeService.DeleteEmployee(email);
         }
     }
 }
