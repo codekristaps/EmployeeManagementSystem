@@ -7,7 +7,13 @@ namespace EmployeeManagementSystem
 {
     public class EmployeeService
     {
-        private static readonly string filePath = "employees.json";
+        private readonly string filePath;
+
+        // Constructor accepting a file path parameter with a default value
+        public EmployeeService(string filePath = "employees.json")
+        {
+            this.filePath = filePath;
+        }
 
         public void SaveEmployees(List<Employee> employees)
         {
