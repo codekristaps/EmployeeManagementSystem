@@ -49,7 +49,7 @@ namespace EmployeeManagementSystem
             }
         }
 
-        public void UpdateEmployee(string email, string newFirstName, string newLastName, double newSalary, double? newHourlyRate, DateTime newBirthDay)
+        public void UpdateEmployee(string email, string newFirstName, string newLastName, double newSalary, double? newHourlyRate, DateTime newBirthDay, string newDepartment)
         {
             var employees = LoadEmployees();
             var employee = employees.Find(e => e.EmailAddress == email);
@@ -60,6 +60,7 @@ namespace EmployeeManagementSystem
                 employee.Salary = newSalary;
                 employee.HourlyRate = newHourlyRate;
                 employee.BirthDay = newBirthDay;
+                employee.Department = newDepartment;
                 SaveEmployees(employees);
                 Console.WriteLine("Employee updated successfully.");
             }

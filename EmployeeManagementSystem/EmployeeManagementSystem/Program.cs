@@ -69,7 +69,10 @@ namespace EmployeeManagementSystem
             Console.Write("Enter Birth Day (YYYY-MM-DD): ");
             DateTime birthDay = DateTime.Parse(Console.ReadLine());
 
-            var employee = new Employee(firstName, lastName, emailAddress, salary, hourlyRate, birthDay);
+            Console.Write("Enter Department Name: ");
+            string department = Console.ReadLine();
+
+            var employee = new Employee(firstName, lastName, emailAddress, salary, hourlyRate, birthDay, department);
             employeeService.AddEmployee(employee);
             Console.WriteLine("Employee added successfully.");
         }
@@ -95,7 +98,10 @@ namespace EmployeeManagementSystem
             Console.Write("Enter new Birth Day (YYYY-MM-DD): ");
             DateTime newBirthDay = DateTime.Parse(Console.ReadLine());
 
-            employeeService.UpdateEmployee(email, newFirstName, newLastName, newSalary, newHourlyRate, newBirthDay);
+            Console.Write("Enter New Department Name: ");
+            string department = Console.ReadLine();
+
+            employeeService.UpdateEmployee(email, newFirstName, newLastName, newSalary, newHourlyRate, newBirthDay, department);
         }
 
         static void DeleteEmployee(EmployeeService employeeService)
